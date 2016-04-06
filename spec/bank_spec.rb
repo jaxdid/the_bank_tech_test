@@ -20,4 +20,12 @@ describe Bank do
       expect{subject.deposit(amount)}.to change{subject.balance}.by(amount) 
     end
   end
+
+  describe "#withdraw" do
+    it "adds the argument to your balance" do
+      balance = 1
+      amount = 1
+      expect{subject.withdraw(amount)}.to change{subject.balance}.by(-amount) 
+    end
+  end
 end

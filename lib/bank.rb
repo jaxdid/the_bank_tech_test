@@ -9,7 +9,8 @@ class Bank
     self.balance += amount
   end
 
-  def withdraw
+  def withdraw(amount)
+    self.balance -= amount
   end
 
   def print_statement
