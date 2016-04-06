@@ -22,16 +22,24 @@ describe Bank do
   end
 
   describe "#deposit" do
-    it "adds an amount to your balance" do
-      balance = 0
+    it "adds an amount to the balance" do
+      subject.balance = 0
       amount = 1
       expect{subject.deposit(amount)}.to change{subject.balance}.by(amount) 
+    end
+
+    it "updates the bank balance" do
+      current_date = Time.now.strftime("%d/%m/%Y") 
+      subject.balance = 10
+      subject.deposit(1)
+      expect(subject.statement.last).to eq "#{current_date} || 1 ||  || 11"
+      
     end
   end
 
   describe "#withdraw" do
-    it "subtracts an amount from your balance" do
-      balance = 1
+    it "subtracts an amount from the balance" do
+      subject.balance = 1
       amount = 1
       expect{subject.withdraw(amount)}.to change{subject.balance}.by(-amount) 
     end
