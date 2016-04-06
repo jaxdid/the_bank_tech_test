@@ -1,8 +1,10 @@
 class Bank
-  attr_accessor :balance
+  DEFAULT_BALANCE = 0
+
+  attr_accessor :balance, :statement
 
   def initialize
-    self.balance = 0
+    self.balance = DEFAULT_BALANCE
   end
 
   def deposit(amount)
